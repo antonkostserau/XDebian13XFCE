@@ -1,0 +1,68 @@
+.xfce4-panel button {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+#whiskermenu-button {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.xfce4-panel button:hover,
+.xfce4-panel button:active {
+  background-color: rgba(255, 255, 255, 0.10);
+}
+
+.xfce4-panel button:checked {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.xfce4-panel.background .tasklist button {
+  padding-left: 8px;
+  padding-right: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.xfce4-panel.background .tasklist button:hover,
+.xfce4-panel.background .tasklist button:active {
+    background-color: rgba(255, 255, 255, 0.10);
+}
+
+.xfce4-panel.background .tasklist button:checked {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.genmon_plugin {
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.genmon_plugin:hover {
+}
+
+.genmon_plugin label {
+}
+
+.genmon_plugin image {
+}
+
+#sn-button {
+  background-color: transparent;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+#sn-button:hover {
+}
+
+#sn-button:active {
+}
+
+#clock-button {
+  padding-left: 8px;
+  padding-right: 8px;
+}

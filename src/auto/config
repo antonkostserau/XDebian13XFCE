@@ -1,0 +1,30 @@
+#!/bin/sh
+
+set -e
+
+lb config noauto                                                            \
+  --architectures  "amd64"                                                  \
+  --linux-flavours "amd64"                                                  \
+  --linux-packages "linux-image linux-headers"                              \
+                                                                            \
+  --binary-images "iso-hybrid"                                              \
+                                                                            \
+  --distribution        "trixie"                                            \
+  --parent-distribution "trixie"                                            \
+                                                                            \
+  --apt-recommends "true"                                                   \
+  --archive-areas  "main non-free-firmware non-free contrib"                \
+                                                                            \
+  --bootloaders     "grub-pc,grub-efi"                                      \
+  --bootappend-live "boot=live components username=user user-password=live" \
+                                                                            \
+  --debian-installer              "live"                                    \
+  --debian-installer-gui          "false"                                   \
+  --debian-installer-distribution "trixie"                                  \
+                                                                            \
+  --firmware-chroot "true"                                                  \
+  --firmware-binary "true"                                                  \
+                                                                            \
+  --memtest "none"                                                          \
+                                                                            \
+  "${@}"

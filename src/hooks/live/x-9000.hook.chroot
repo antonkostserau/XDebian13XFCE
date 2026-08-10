@@ -1,0 +1,6 @@
+#!/bin/bash
+
+groupadd docker
+
+systemctl enable containerd.service
+systemctl enable docker.service
