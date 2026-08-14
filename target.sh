@@ -143,7 +143,7 @@ function main {
 
     if [[ -z "$(command -v zip)" ]]; then
         logError "zip command not found. Please install zip."
-        return 5
+        return 2
     fi
 
     zip -0 -r "$tZIP" ./src/ ./run.sh ./target.sh
@@ -167,13 +167,13 @@ function main {
     if [ $? -ne 0 ]; then
         logError "Can't execute the \"target\" stage."
 
-        return 2
+        return 5
     fi
 
     if [ ! -d "$(getCatalog)/target" ]; then
         logError "Catalog \"$(getCatalog)/target\" doesn't exist."
         
-        return 3
+        return 6
     fi
 
     cd "$(getCatalog)/target"
@@ -183,7 +183,7 @@ function main {
     if [ $? -ne 0 ]; then
         logError "Can't execute the \"lb build\" command."
 
-        return 4
+        return 7
     fi
 
     cd "$(getCatalog)"
