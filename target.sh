@@ -129,6 +129,39 @@ function main {
         return 1
     fi
 
+    local zipPath="$(getCatalog)/src/includes.chroot/opt/XDebian13XFCE.zip"
+    if [[ -f "$zipPath" ]]; then
+        rm -f "$zipPath"
+        logMessage "Removed ZIP Archive: \"$zipPath\"."
+    else
+        logWarning "ZIP Archive not found: \"$zipPath\"."
+    fi
+
+    local tZIP="$(getCatalog)/XDebian13XFCE.zip"
+
+    cd "$(getCatalog)"
+
+    if [[ -z "$(command -v zip)" ]]; then
+        logError "zip command not found. Please install zip."
+        return 5
+    fi
+
+    zip -0 -r "$tZIP" ./src/ ./run.sh ./target.sh
+
+    if [ $? -ne 0 ]; then
+        logError "Can't create ZIP Archive."
+        return 3
+    fi
+
+    mkdir -p "$(getCatalog)/src/includes.chroot/opt"
+
+    mv "$tZIP" "$zipPath"
+
+    if [ $? -ne 0 ]; then
+        logError "Can't move ZIP Archive."
+        return 4
+    fi
+
     target
 
     if [ $? -ne 0 ]; then
